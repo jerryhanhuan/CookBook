@@ -1,0 +1,21 @@
+OUTPUTFILE = hello
+BINDIR = bin
+
+.PHONY: all
+
+all: $(OUTPUTFILE)
+
+$(OUTPUTFILE):hello.cpp
+	g++ -o $@ $<
+
+.PHONY:install
+
+install:
+	mkdir -p $(BINDIR)
+	cp $(OUTPUTFILE) $(BINDIR)
+
+.PHONY:clean
+
+clean:
+	rm $(OUTPUTFILE)
+
